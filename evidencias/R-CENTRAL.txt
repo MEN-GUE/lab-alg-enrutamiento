@@ -1,0 +1,48 @@
+R-CENTRAL#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 10 subnets, 2 masks
+O       10.0.0.0/30 [110/150] via 10.0.0.9, 00:04:36, Serial0/0/1
+                    [110/150] via 10.0.0.5, 00:04:36, Serial0/0/0
+C       10.0.0.4/30 is directly connected, Serial0/0/0
+L       10.0.0.6/32 is directly connected, Serial0/0/0
+C       10.0.0.8/30 is directly connected, Serial0/0/1
+L       10.0.0.10/32 is directly connected, Serial0/0/1
+D       10.0.0.12/30 [90/307200] via 10.0.0.17, 00:04:51, Serial0/1/0
+                     [90/307200] via 10.0.0.21, 00:04:47, Serial0/1/1
+C       10.0.0.16/30 is directly connected, Serial0/1/0
+L       10.0.0.18/32 is directly connected, Serial0/1/0
+C       10.0.0.20/30 is directly connected, Serial0/1/1
+L       10.0.0.22/32 is directly connected, Serial0/1/1
+     172.16.0.0/16 is variably subnetted, 5 subnets, 5 masks
+S       172.16.0.0/24 is directly connected, Null0
+D       172.16.0.0/25 [90/153856] via 10.0.0.21, 00:04:47, Serial0/1/1
+D       172.16.0.128/26 [90/156160] via 10.0.0.17, 00:04:51, Serial0/1/0
+D       172.16.0.192/27 [90/156160] via 10.0.0.17, 00:04:51, Serial0/1/0
+D       172.16.0.224/28 [90/156160] via 10.0.0.17, 00:04:51, Serial0/1/0
+D    192.168.0.0/23 is a summary, 00:04:36, Null0
+O    192.168.0.0/24 [110/51] via 10.0.0.9, 00:04:36, Serial0/0/1
+     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+O       192.168.1.0/26 [110/51] via 10.0.0.5, 00:04:36, Serial0/0/0
+O       192.168.1.64/28 [110/51] via 10.0.0.5, 00:04:36, Serial0/0/0
+
+R-CENTRAL#show ip ospf neighbor
+
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+1.1.1.1           0   FULL/  -        00:00:36    10.0.0.5        Serial0/0/0
+2.2.2.2           0   FULL/  -        00:00:36    10.0.0.9        Serial0/0/1
+R-CENTRAL#show ip eigrp neighbors
+IP-EIGRP neighbors for process 100
+H   Address         Interface      Hold Uptime    SRTT   RTO   Q   Seq
+                                   (sec)          (ms)        Cnt  Num
+0   10.0.0.17       Se0/1/0        11   00:05:03  40     1000  0   18
+1   10.0.0.21       Se0/1/1        14   00:04:59  40     1000  0   24
